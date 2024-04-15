@@ -10,7 +10,7 @@ Genshin Impact using JavaScript:
 const { loadImage } = require('@napi-rs/canvas');
 
 let id = "10000051";
-const image = await loadImage(`https://raw.githubusercontent.com/xentriom/HoYo-Assets/main/genshin/splash/${id}.png`);
+const image = await loadImage(`https://raw.githubusercontent.com/ScobbleQ/HoYo-Assets/main/genshin/splash/${id}.png`);
 ```
 Honkai: Star Rail using Python:
 ```py
@@ -18,6 +18,6 @@ from PIL import Image
 import requests
 
 id = '1307'
-response = requests.get(f'https://raw.githubusercontent.com/xentriom/HoYo-Assets/main/starrail/wish/{id}.png')
+response = requests.get(f'https://raw.githubusercontent.com/ScobbleQ/HoYo-Assets/main/starrail/wish/{id}.png')
 image = Image.open(BytesIO(response.content))
 ```
