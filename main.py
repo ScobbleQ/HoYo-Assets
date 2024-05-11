@@ -1,11 +1,11 @@
 # Last Update -------------------
 # Genshin Impact: v4.6          |
-# Star Rail: v2.1               |
+# Star Rail: v2.2               |
 
 import utils
 
-update_genshin = True
-update_starrail = False
+update_genshin = False
+update_starrail = True
 
 if update_genshin:
     utils.update_genshin()
