@@ -15,8 +15,7 @@ def link_starrail_art(id):
     return f'https://enka.network/ui/hsr/SpriteOutput/AvatarDrawCard/{id}.png'
 
 def link_starrail_icon(id):
-    # Thank you to Mar-7th for character icons
-    return f'https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/image/character_preview/{id}.png'
+    return f'https://raw.githubusercontent.com/FortOfFans/HSR/main/spriteoutput/avatarshopicon/{id}.png'
 
 # -------------------------------------------------------------------------------------------------
 # GENSHIN IMPACT
