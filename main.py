@@ -1,6 +1,6 @@
 # Last Update -------------------
 # Genshin Impact: v4.6          |
-# Star Rail: v2.2               |
+# Star Rail: v2.3               |
 
 import utils
 
