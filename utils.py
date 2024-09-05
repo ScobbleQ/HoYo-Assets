@@ -19,6 +19,56 @@ def link_starrail_icon(id):
     return f'https://raw.githubusercontent.com/FortOfFans/HSR/main/spriteoutput/avatarshopicon/{id}.png'
 
 # -------------------------------------------------------------------------------------------------
+# Version Check
+# -------------------------------------------------------------------------------------------------
+def version_check():
+    return_data = []
+    url = 'https://sg-hyp-api.hoyoverse.com/hyp/hyp-connect/api/getGamePackages?launcher_id=VYTpXlbWo8'
+    response = requests.get(url)
+    data = response.json().get('data').get('game_packages')
+
+    for games in data:
+        game = games.get('game')
+        game_name = game.get('biz')
+
+        main = games.get('main').get('major')
+        game_version = main.get('version')
+
+        if game_name != 'hk4e_global' and game_name != 'hkrpg_global':
+            continue
+        else:
+            return_data.append({ game_name: game_version })
+    
+    return return_data
+
+def update():
+    latest_versions = version_check()
+    
+    try:
+        with open('version.json', 'r') as file:
+            current_versions = json.load(file)
+    except FileNotFoundError:
+        current_versions = {}
+    except json.JSONDecodeError:
+        print("Error decoding JSON file.")
+        current_versions = {}
+    
+    latest_versions_dict = {list(version.keys())[0]: list(version.values())[0] for version in latest_versions}
+
+    for game, new_version in latest_versions_dict.items():
+        current_version = current_versions.get(game)
+        if current_version != new_version:            
+            if game == 'hk4e_global':
+                update_genshin()
+            elif game == 'hkrpg_global':
+                update_starrail()
+
+            current_versions[game] = new_version
+    
+    with open('version.json', 'w') as file:
+        json.dump(current_versions, file, indent=4)
+
+# -------------------------------------------------------------------------------------------------
 # GENSHIN IMPACT
 # -------------------------------------------------------------------------------------------------
 def update_genshin():

@@ -4,6 +4,9 @@ A repository for storing and accessing art from HoYoverse games, Genshin Impact 
 # Version
 <p>Genshin Impact - v5.0<br>Honkai: Star Rail - v2.4</p>
 
+# Update
+This repo is managed by GitHub Workflow Actions, I will try to check on it from time to time. Please contact me on Discord(@ScobbleQ) if anything is wrong.
+
 # Example
 Genshin Impact using JavaScript:
 ```js
