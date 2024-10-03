@@ -84,7 +84,7 @@ def update_genshin():
         genshin_wish_art(current_dir, name, id_str)
         return id_str
 
-    with ThreadPoolExecutor(max_workers=20) as executor:
+    with ThreadPoolExecutor(max_workers=None) as executor:
         futures = [executor.submit(process_character, id_str, name) for id_str, name in data.items()]
         
         for future in as_completed(futures):
@@ -158,7 +158,7 @@ def update_starrail():
         starrail_wish_art(current_dir, name, id_str)
         return id_str
 
-    with ThreadPoolExecutor(max_workers=20) as executor:
+    with ThreadPoolExecutor(max_workers=None) as executor:
         futures = [executor.submit(process_character, id_str, name) for id_str, name in data.items()]
 
         for future in as_completed(futures):
